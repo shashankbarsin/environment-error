@@ -1,11 +1,10 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Ubuntu-16.04'
-
 jobs:
 - job: Job1
+  pool:
+    vmImage: 'Ubuntu-16.04'
   steps:
   - task: KubernetesManifest@0
     displayName: Deploy manifests
@@ -13,6 +12,8 @@ jobs:
       kubernetesServiceEndpoint: k8sSC
       manifests: 'manifests/curlpod.yml'
 - job: Job2
+  pool:
+    vmImage: 'Ubuntu-16.04'
   steps:
   - task: KubernetesManifest@0
     displayName: Deploy manifests
@@ -20,6 +21,8 @@ jobs:
       kubernetesServiceEndpoint: k8sSC
       manifests: 'manifests/deployment.yml'
 - job: Job3
+  pool:
+    vmImage: 'Ubuntu-16.04'
   steps:
   - task: KubernetesManifest@0
     displayName: Deploy manifests
