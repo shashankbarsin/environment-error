@@ -4,7 +4,6 @@ metadata:
   labels:
     test: liveness
   name: liveness-exec
-  namespace: error
 spec:
   containers:
   - name: liveness
