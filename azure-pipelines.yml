@@ -9,5 +9,5 @@ steps:
   displayName: Deploy manifests
   inputs:
     kubernetesServiceEndpoint: k8sSC
-    manifests: '**/manifests/*'
+    manifests: 'manifests/*'
 
