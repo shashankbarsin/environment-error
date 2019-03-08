@@ -4,10 +4,25 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
-steps:
-- task: KubernetesManifest@0
-  displayName: Deploy manifests
-  inputs:
-    kubernetesServiceEndpoint: k8sSC
-    manifests: 'manifests/*'
-
+jobs:
+- job: Job1
+  steps:
+  - task: KubernetesManifest@0
+    displayName: Deploy manifests
+    inputs:
+      kubernetesServiceEndpoint: k8sSC
+      manifests: 'manifests/curlpod.yml'
+- job: Job2
+  steps:
+  - task: KubernetesManifest@0
+    displayName: Deploy manifests
+    inputs:
+      kubernetesServiceEndpoint: k8sSC
+      manifests: 'manifests/deployment.yml'
+- job: Job3
+  steps:
+  - task: KubernetesManifest@0
+    displayName: Deploy manifests
+    inputs:
+      kubernetesServiceEndpoint: k8sSC
+      manifests: 'manifests/probe-exec-liveness.yml'
