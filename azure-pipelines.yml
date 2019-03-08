@@ -10,7 +10,8 @@ jobs:
     displayName: Deploy manifests
     inputs:
       kubernetesServiceEndpoint: k8sSC
-      manifests: 'manifests/curlpod.yml'
+      manifests: 'manifests/curl.yml'
+    timeoutInMinutes: 2
 - job: Job2
   pool:
     vmImage: 'Ubuntu-16.04'
@@ -19,7 +20,8 @@ jobs:
     displayName: Deploy manifests
     inputs:
       kubernetesServiceEndpoint: k8sSC
-      manifests: 'manifests/deployment.yml'
+      manifests: 'manifests/imagepullsecretnotconfigured.yml'
+    timeoutInMinutes: 2
 - job: Job3
   pool:
     vmImage: 'Ubuntu-16.04'
@@ -29,3 +31,4 @@ jobs:
     inputs:
       kubernetesServiceEndpoint: k8sSC
       manifests: 'manifests/probe-exec-liveness.yml'
+    timeoutInMinutes: 2
