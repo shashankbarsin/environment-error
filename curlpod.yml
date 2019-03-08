@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: curl
+  name: curlpod
+spec:
+  containers:
+  - name: liveness
+    image: radial/busyboxplus:curl
+    args:
+    - /bin/sh
+    - -c
+    - curl http://bootcamp-demo:8080
